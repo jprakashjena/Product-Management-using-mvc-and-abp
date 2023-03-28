@@ -49,7 +49,7 @@ public class AccountSettingDefinitionProvider : SettingDefinitionProvider
 
             new SettingDefinition(AccountSettingNames.ExternalProviders, isVisibleToClients: false)
 
-
+///////////
             //new SettingDefinition("Smtp.Host", "smtp.gmail.com"),
             //new SettingDefinition("Smtp.Port", "465"),
             //new SettingDefinition("Smtp.UserName", "jprakash555000@gmail.com"),
