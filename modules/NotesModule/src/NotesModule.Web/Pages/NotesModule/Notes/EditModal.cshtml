@@ -1,0 +1,30 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using NotesModule.Localization
+@using NotesModule.Web.Pages.NotesModule.Notes
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using NotesModule.Notes;
+@using System.Globalization
+@inject IHtmlLocalizer<NotesModuleResource> L
+@model EditModalModel
+@{
+    Layout = null;
+}
+
+<form data-ajaxForm="true" asp-page="/NotesModule/Notes/EditModal" autocomplete="off">
+    <abp-modal id="NoteEditModal">
+        <abp-modal-header title="@L["Update"].Value"></abp-modal-header>
+
+        <abp-modal-body>
+                    <abp-input asp-for="Id" />
+                    <abp-input asp-for="Note.ConcurrencyStamp" hidden="true" suppress-label="true"/>
+                    
+            <abp-input asp-for="Note.Content" text-area/>
+
+                                <abp-select asp-for="Note.IdentityUserId" asp-items="Model.IdentityUserLookupList" label="@L["IdentityUser"].Value"/>
+                
+        </abp-modal-body>
+
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
+    </abp-modal>
+</form>

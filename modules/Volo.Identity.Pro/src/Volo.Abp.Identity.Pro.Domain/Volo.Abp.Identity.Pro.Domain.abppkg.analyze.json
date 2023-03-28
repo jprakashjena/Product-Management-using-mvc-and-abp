@@ -1,0 +1,262 @@
+{
+  "name": "Volo.Abp.Identity.Pro.Domain",
+  "hash": "fa31a116d95138d89e747697b45c7fdf",
+  "contents": [
+    {
+      "namespace": "Volo.Abp.Identity",
+      "dependsOnModules": [
+        {
+          "declaringAssemblyName": "Volo.Abp.Identity.Domain",
+          "namespace": "Volo.Abp.Identity",
+          "name": "AbpIdentityDomainModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.Identity.Pro.Domain.Shared",
+          "namespace": "Volo.Abp.Identity",
+          "name": "AbpIdentityProDomainSharedModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.Ldap",
+          "namespace": "Volo.Abp.Ldap",
+          "name": "AbpLdapModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.Caching",
+          "namespace": "Volo.Abp.Caching",
+          "name": "AbpCachingModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.Gdpr.Abstractions",
+          "namespace": "Volo.Abp.Gdpr",
+          "name": "AbpGdprAbstractionsModule"
+        }
+      ],
+      "implementingInterfaces": [
+        {
+          "name": "IAbpModule",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IAbpModule"
+        },
+        {
+          "name": "IOnPreApplicationInitialization",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IOnPreApplicationInitialization"
+        },
+        {
+          "name": "IOnApplicationInitialization",
+          "namespace": "Volo.Abp",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.IOnApplicationInitialization"
+        },
+        {
+          "name": "IOnPostApplicationInitialization",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IOnPostApplicationInitialization"
+        },
+        {
+          "name": "IOnApplicationShutdown",
+          "namespace": "Volo.Abp",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.IOnApplicationShutdown"
+        },
+        {
+          "name": "IPreConfigureServices",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IPreConfigureServices"
+        },
+        {
+          "name": "IPostConfigureServices",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IPostConfigureServices"
+        }
+      ],
+      "contentType": "abpModule",
+      "name": "AbpIdentityProDomainModule",
+      "summary": null
+    },
+    {
+      "namespace": "Volo.Abp.Identity",
+      "baseClass": {
+        "name": "Object",
+        "namespace": "System",
+        "declaringAssemblyName": "System.Private.CoreLib",
+        "fullName": "System.Object"
+      },
+      "methods": [
+        {
+          "returnType": "Boolean",
+          "name": "IsOptionalAsync",
+          "summary": null,
+          "isAsync": true,
+          "isPublic": true,
+          "isPrivate": false,
+          "isStatic": false,
+          "parameters": []
+        },
+        {
+          "returnType": "Boolean",
+          "name": "IsForcedEnableAsync",
+          "summary": null,
+          "isAsync": true,
+          "isPublic": true,
+          "isPrivate": false,
+          "isStatic": false,
+          "parameters": []
+        },
+        {
+          "returnType": "Boolean",
+          "name": "IsForcedDisableAsync",
+          "summary": null,
+          "isAsync": true,
+          "isPublic": true,
+          "isPrivate": false,
+          "isStatic": false,
+          "parameters": []
+        }
+      ],
+      "implementingInterfaces": [
+        {
+          "name": "IDomainService",
+          "namespace": "Volo.Abp.Domain.Services",
+          "declaringAssemblyName": "Volo.Abp.Ddd.Domain",
+          "fullName": "Volo.Abp.Domain.Services.IDomainService"
+        },
+        {
+          "name": "ITransientDependency",
+          "namespace": "Volo.Abp.DependencyInjection",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.DependencyInjection.ITransientDependency"
+        }
+      ],
+      "contentType": "domainService",
+      "name": "IdentityProTwoFactorManager",
+      "summary": null
+    },
+    {
+      "defaultValue": "Optional",
+      "displayName": "Two Factor Behaviour",
+      "description": "Two Factor Behaviour",
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Identity.TwoFactor.Behaviour",
+      "summary": null
+    },
+    {
+      "defaultValue": "True",
+      "displayName": "Allow users to change their Two Factor.",
+      "description": "Allow users to change their Two Factor.",
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Identity.TwoFactor.UsersCanChange",
+      "summary": null
+    },
+    {
+      "defaultValue": "false",
+      "displayName": "Ldap Login",
+      "description": "Enable Ldap Login",
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Account.EnableLdapLogin",
+      "summary": null
+    },
+    {
+      "defaultValue": "false",
+      "displayName": "OAuth Login",
+      "description": "Enable OAuth Login",
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Identity.EnableOAuthLogin",
+      "summary": null
+    },
+    {
+      "defaultValue": null,
+      "displayName": "Authority",
+      "description": "Authority",
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Identity.OAuthLogin.Authority",
+      "summary": null
+    },
+    {
+      "defaultValue": null,
+      "displayName": "Client Id",
+      "description": "Client Id",
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Identity.OAuthLogin.ClientId",
+      "summary": null
+    },
+    {
+      "defaultValue": null,
+      "displayName": "Client Secret",
+      "description": "Client Secret",
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Identity.OAuthLogin.ClientSecret",
+      "summary": null
+    },
+    {
+      "defaultValue": null,
+      "displayName": "Scope",
+      "description": "Scope",
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Identity.OAuthLogin.Scope",
+      "summary": null
+    },
+    {
+      "defaultValue": "false",
+      "displayName": "Require Https Metadata",
+      "description": "Require Https Metadata",
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Identity.OAuthLogin.RequireHttpsMetadata",
+      "summary": null
+    },
+    {
+      "defaultValue": "false",
+      "displayName": "Validate Endpoints",
+      "description": "Validate Endpoints",
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Identity.OAuthLogin.ValidateEndpoints",
+      "summary": null
+    },
+    {
+      "defaultValue": "false",
+      "displayName": "Validate Issuer Name",
+      "description": "Validate Issuer Name",
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Identity.OAuthLogin.ValidateIssuerName",
+      "summary": null
+    }
+  ]
+}

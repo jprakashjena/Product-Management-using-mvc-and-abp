@@ -1,0 +1,108 @@
+{
+  "name": "Volo.Abp.Account.Pro.Public.Web",
+  "hash": "556073e551a4b1207578a4d01195dce7",
+  "contents": [
+    {
+      "namespace": "Volo.Abp.Account.Public.Web",
+      "dependsOnModules": [
+        {
+          "declaringAssemblyName": "Volo.Abp.Account.Pro.Public.Application.Contracts",
+          "namespace": "Volo.Abp.Account",
+          "name": "AbpAccountPublicApplicationContractsModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.Identity.AspNetCore",
+          "namespace": "Volo.Abp.Identity.AspNetCore",
+          "name": "AbpIdentityAspNetCoreModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.Identity.Pro.Domain",
+          "namespace": "Volo.Abp.Identity",
+          "name": "AbpIdentityProDomainModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.AspNetCore.Mvc.UI.Theme.Commercial",
+          "namespace": "Volo.Abp.AspNetCore.Mvc.UI.Theme.Commercial",
+          "name": "AbpAspNetCoreMvcUiThemeCommercialModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.Emailing",
+          "namespace": "Volo.Abp.Emailing",
+          "name": "AbpEmailingModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.Sms",
+          "namespace": "Volo.Abp.Sms",
+          "name": "AbpSmsModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.Security",
+          "namespace": "Volo.Abp.Security",
+          "name": "AbpSecurityModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.AutoMapper",
+          "namespace": "Volo.Abp.AutoMapper",
+          "name": "AbpAutoMapperModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.AspNetCore.MultiTenancy",
+          "namespace": "Volo.Abp.AspNetCore.MultiTenancy",
+          "name": "AbpAspNetCoreMultiTenancyModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.ExceptionHandling",
+          "namespace": "Volo.Abp.ExceptionHandling",
+          "name": "AbpExceptionHandlingModule"
+        }
+      ],
+      "implementingInterfaces": [
+        {
+          "name": "IAbpModule",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IAbpModule"
+        },
+        {
+          "name": "IOnPreApplicationInitialization",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IOnPreApplicationInitialization"
+        },
+        {
+          "name": "IOnApplicationInitialization",
+          "namespace": "Volo.Abp",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.IOnApplicationInitialization"
+        },
+        {
+          "name": "IOnPostApplicationInitialization",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IOnPostApplicationInitialization"
+        },
+        {
+          "name": "IOnApplicationShutdown",
+          "namespace": "Volo.Abp",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.IOnApplicationShutdown"
+        },
+        {
+          "name": "IPreConfigureServices",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IPreConfigureServices"
+        },
+        {
+          "name": "IPostConfigureServices",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IPostConfigureServices"
+        }
+      ],
+      "contentType": "abpModule",
+      "name": "AbpAccountPublicWebModule",
+      "summary": null
+    }
+  ]
+}

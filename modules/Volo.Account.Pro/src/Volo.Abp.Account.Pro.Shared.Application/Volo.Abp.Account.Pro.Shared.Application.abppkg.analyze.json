@@ -1,0 +1,225 @@
+{
+  "name": "Volo.Abp.Account.Pro.Shared.Application",
+  "hash": "63dda6d0c3ac9282629f8638fc8b79b6",
+  "contents": [
+    {
+      "namespace": "Volo.Abp.Account",
+      "dependsOnModules": [
+        {
+          "declaringAssemblyName": "Volo.Abp.Account.Pro.Shared.Application.Contracts",
+          "namespace": "Volo.Abp.Account",
+          "name": "AbpAccountSharedApplicationContractsModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.Emailing",
+          "namespace": "Volo.Abp.Emailing",
+          "name": "AbpEmailingModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.Identity.Pro.Domain",
+          "namespace": "Volo.Abp.Identity",
+          "name": "AbpIdentityProDomainModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.SettingManagement.Domain",
+          "namespace": "Volo.Abp.SettingManagement",
+          "name": "AbpSettingManagementDomainModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.Ddd.Application",
+          "namespace": "Volo.Abp.Application",
+          "name": "AbpDddApplicationModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.UI.Navigation",
+          "namespace": "Volo.Abp.UI.Navigation",
+          "name": "AbpUiNavigationModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.Json",
+          "namespace": "Volo.Abp.Json",
+          "name": "AbpJsonModule"
+        }
+      ],
+      "implementingInterfaces": [
+        {
+          "name": "IAbpModule",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IAbpModule"
+        },
+        {
+          "name": "IOnPreApplicationInitialization",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IOnPreApplicationInitialization"
+        },
+        {
+          "name": "IOnApplicationInitialization",
+          "namespace": "Volo.Abp",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.IOnApplicationInitialization"
+        },
+        {
+          "name": "IOnPostApplicationInitialization",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IOnPostApplicationInitialization"
+        },
+        {
+          "name": "IOnApplicationShutdown",
+          "namespace": "Volo.Abp",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.IOnApplicationShutdown"
+        },
+        {
+          "name": "IPreConfigureServices",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IPreConfigureServices"
+        },
+        {
+          "name": "IPostConfigureServices",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IPostConfigureServices"
+        }
+      ],
+      "contentType": "abpModule",
+      "name": "AbpAccountSharedApplicationModule",
+      "summary": null
+    },
+    {
+      "defaultValue": "true",
+      "displayName": "Enable self registration",
+      "description": "Users can create accounts themselves.",
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Account.IsSelfRegistrationEnabled",
+      "summary": null
+    },
+    {
+      "defaultValue": "true",
+      "displayName": "Authenticate with a local account",
+      "description": "Indicates if Server will allow users to authenticate with a local account.",
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Account.EnableLocalLogin",
+      "summary": null
+    },
+    {
+      "defaultValue": "true",
+      "displayName": "Remember browser",
+      "description": null,
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Account.TwoFactorLogin.IsRememberBrowserEnabled",
+      "summary": null
+    },
+    {
+      "defaultValue": "false",
+      "displayName": "Use security image question (captcha) on login.",
+      "description": "Use security image question (captcha) on login.",
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Account.Captcha.UseCaptchaOnLogin",
+      "summary": null
+    },
+    {
+      "defaultValue": "false",
+      "displayName": "Use security image question (captcha) on registration.",
+      "description": "Use security image question (captcha) on registration.",
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Account.Captcha.UseCaptchaOnRegistration",
+      "summary": null
+    },
+    {
+      "defaultValue": "https://www.google.com/",
+      "displayName": "Verify base url",
+      "description": null,
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Account.Captcha.VerifyBaseUrl",
+      "summary": null
+    },
+    {
+      "defaultValue": null,
+      "displayName": "Site key",
+      "description": null,
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Account.Captcha.SiteKey",
+      "summary": null
+    },
+    {
+      "defaultValue": null,
+      "displayName": "Site secret",
+      "description": null,
+      "isVisibleToClient": false,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Account.Captcha.SiteSecret",
+      "summary": null
+    },
+    {
+      "defaultValue": "3",
+      "displayName": "Version",
+      "description": null,
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Account.Captcha.Version",
+      "summary": null
+    },
+    {
+      "defaultValue": "0.5",
+      "displayName": "Score",
+      "description": null,
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Account.Captcha.Score",
+      "summary": null
+    },
+    {
+      "defaultValue": "False",
+      "displayName": "Use Gravatar",
+      "description": "Use Gravatar service for your profile picture.",
+      "isVisibleToClient": true,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Account.ProfilePictureSource",
+      "summary": null
+    },
+    {
+      "defaultValue": null,
+      "displayName": "Abp.Account.ExternalProviders",
+      "description": null,
+      "isVisibleToClient": false,
+      "isInherited": true,
+      "isEncrypted": false,
+      "contentType": "setting",
+      "name": "Abp.Account.ExternalProviders",
+      "summary": null
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.Identity.Localization
+@using Volo.Abp.Identity.Web.Pages.Identity.Components.IdentitySettingGroup
+@inject IHtmlLocalizer<IdentityResource> L
+@model IdentitySettingOAuthGroupViewComponent.IdentitySettingOAuthViewModel
+
+<abp-script src="/Pages/Identity/Components/IdentitySettingOAuthGroup/Default.js" />
+
+<abp-tabs>
+    @if (Model.IdentityOAuthSettings != null)
+    {
+        <abp-tab title="@L["IdentitySettingsOAuth"].Value">
+            <form id="IdentityOAuthSettingsForm">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <h4>@L["OAuthLoginSettings"]</h4>
+                            <abp-input asp-for="@Model.IdentityOAuthSettings.EnableOAuthLogin" name="EnableOAuthLogin" />
+                            <abp-input asp-for="@Model.IdentityOAuthSettings.ClientId" name="ClientId" />
+                            <abp-input asp-for="@Model.IdentityOAuthSettings.ClientSecret" name="ClientSecret" />
+                            <abp-input asp-for="@Model.IdentityOAuthSettings.Authority" name="Authority" />
+                            <abp-input asp-for="@Model.IdentityOAuthSettings.Scope" name="Scope" />
+                            <abp-input asp-for="@Model.IdentityOAuthSettings.RequireHttpsMetadata" name="RequireHttpsMetadata" />
+                            <abp-input asp-for="@Model.IdentityOAuthSettings.ValidateEndpoints" name="ValidateEndpoints" />
+                            <abp-input asp-for="@Model.IdentityOAuthSettings.ValidateIssuerName" name="ValidateIssuerName" />
+                        </div>
+                        <hr class="my-4" />
+                        <div>
+                            <abp-button button-type="Primary" type="submit"><i class="fa fa-save"></i> @L["Save"]</abp-button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </abp-tab>
+    }
+</abp-tabs>

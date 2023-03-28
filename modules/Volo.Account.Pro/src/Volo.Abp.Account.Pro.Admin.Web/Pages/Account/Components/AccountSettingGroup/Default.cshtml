@@ -1,0 +1,99 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.Account.Localization
+@using Volo.Abp.Account.Admin.Web.Pages.Account.Components.AccountSettingGroup
+@using Volo.Abp.Identity.Localization
+@using Volo.Abp.MultiTenancy
+@inject IHtmlLocalizer<AccountResource> L
+@inject IHtmlLocalizer<IdentityResource> IdentityLocalizer
+@inject ICurrentTenant CurrentTenant
+@model AccountSettingGroupViewComponent.AccountSettingsViewModel
+
+<abp-script src="/Pages/Account/Components/AccountSettingGroup/Default.js" />
+
+<abp-tabs>
+    <abp-tab active="true" title="@L["AccountSettingsGeneral"].Value">
+        <form id="AccountSettingsForm">
+            <div class="row">
+                <div class="col-md-12">
+                    <div>
+                        <h4>@L["AccountSettingsGeneral"]</h4>
+                        <div>
+                            <abp-input asp-for="@Model.AccountSettings.IsSelfRegistrationEnabled" name="IsSelfRegistrationEnabled"/>
+                            <abp-input asp-for="@Model.AccountSettings.EnableLocalLogin" name="EnableLocalLogin"/>
+                        </div>
+                    </div>
+                    <hr class="my-4"/>
+                    <div>
+                        <abp-button button-type="Primary" type="submit"><i class="fa fa-save"></i> @L["Save"]</abp-button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </abp-tab>
+
+    @if (Model.AccountTwoFactorSettings != null)
+    {
+        <abp-tab title="@L["AccountSettingsTwoFactor"].Value">
+            <form id="AccountTwoFactorSettingsForm">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <h4>@L["TwoFactorAuthentication"]</h4>
+                            <div>
+                                <abp-select asp-for="@Model.AccountTwoFactorSettings.TwoFactorBehaviour" label="@IdentityLocalizer["DisplayName:Abp.Identity.TwoFactorBehaviour"].Value" name="TwoFactorBehaviour"/>
+                                <abp-input asp-for="@Model.AccountTwoFactorSettings.UsersCanChange" label="@IdentityLocalizer["DisplayName:Abp.Identity.UsersCanChange"].Value" name="UsersCanChange" />
+                                <abp-input asp-for="@Model.AccountTwoFactorSettings.IsRememberBrowserEnabled" name="IsRememberBrowserEnabled" />
+                            </div>
+                         </div>
+                        <hr class="my-4" />
+                        <div>
+                            <abp-button button-type="Primary" type="submit"><i class="fa fa-save"></i> @L["Save"]</abp-button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </abp-tab>
+    }
+    @if (Model.AccountRecaptchaSettings != null &&
+        (!CurrentTenant.IsAvailable ||
+         Model.AccountRecaptchaSettings.UseCaptchaOnLogin ||
+         Model.AccountRecaptchaSettings.UseCaptchaOnRegistration))
+    {
+        <abp-tab title="@L["Captcha"].Value">
+            <form id="AccountCaptchaSettingsForm">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <h4>@L["Captcha"]</h4>
+                            @if (!CurrentTenant.IsAvailable)
+                            {
+                                <abp-input asp-for="@Model.AccountRecaptchaSettings.UseCaptchaOnLogin" name="UseCaptchaOnLogin" />
+                                <abp-input asp-for="@Model.AccountRecaptchaSettings.UseCaptchaOnRegistration" name="UseCaptchaOnRegistration" />
+                                <abp-input asp-for="@Model.AccountRecaptchaSettings.VerifyBaseUrl" name="VerifyBaseUrl" />
+                            }
+
+                            @{
+                                var versionItems = new List<SelectListItem>
+                                {
+                                    new("2", "2"),
+                                    new("3", "3")
+                                };
+                            }
+
+                            <abp-select asp-for="@Model.AccountRecaptchaSettings.Version" asp-items="@versionItems" name="Version"/>
+                            <abp-input asp-for="@Model.AccountRecaptchaSettings.SiteKey" name="SiteKey" info="@L["SetNullWillUseGlobalSettings"].Value" />
+                            <abp-input asp-for="@Model.AccountRecaptchaSettings.SiteSecret" name="SiteSecret" info="@L["SetNullWillUseGlobalSettings"].Value" />
+                            <div>
+                                <abp-input asp-for="@Model.AccountRecaptchaSettings.Score" name="Score" type="number"/>
+                            </div>
+                        </div>
+                        <hr class="my-4" />
+                        <div>
+                            <abp-button button-type="Primary" type="submit"><i class="fa fa-save"></i> @L["Save"]</abp-button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </abp-tab>
+    }
+</abp-tabs>

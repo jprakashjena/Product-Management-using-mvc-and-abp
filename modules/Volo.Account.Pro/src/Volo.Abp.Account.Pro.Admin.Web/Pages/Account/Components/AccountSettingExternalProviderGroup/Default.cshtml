@@ -1,0 +1,107 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.Extensions.Localization
+@using Volo.Abp.Account.Admin.Web.Pages.Account.Components
+@using Volo.Abp.Account.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Alert
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Button
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Tab
+@using Volo.Abp.AspNetCore.Mvc.UI.Bundling.TagHelpers
+@using Volo.Abp.MultiTenancy
+@using Volo.Abp.Account.Admin.Web.Pages.Account.Components.AccountSettingExternalProviderGroup;
+@inject IHtmlLocalizer<AccountResource> L
+@inject ICurrentTenant CurrentTenant
+@inject IStringLocalizerFactory LocalizerFactory
+@model AccountSettingExternalProviderViewComponent.AccountSettingsExternalProviderViewModel
+
+<abp-script src="/Pages/Account/Components/AccountSettingExternalProviderGroup/Default.js" />
+
+<abp-tabs>
+    @if ((!CurrentTenant.IsAvailable && Model.AccountExternalProviderSettings.Settings.Any())
+         || (CurrentTenant.IsAvailable && Model.AccountExternalProviderSettings.Settings.Any(x => x.Enabled)))
+    {
+        var defaultLocalizer = LocalizerFactory.CreateDefaultOrNull();
+
+        <abp-tab title="@L["AccountExternalProviderSettings"].Value">
+            <form id="AccountExternalProviderSettingsForm">
+                <div class="row">
+                    <div class="col-md-12">
+                        @if (CurrentTenant.IsAvailable)
+                        {
+                           foreach (var provider in Model.AccountExternalProviderSettings.Settings.Where(setting => setting.Enabled))
+                           {
+                               <div class="provider_container">
+                                   <h4>@ExternalLoginProviderLocalizationHelper.Localize(defaultLocalizer,$"ExternalProvider:{provider.Name}", provider.Name)</h4>
+
+                                   <input type="hidden" name="Name" value="@provider.Name">
+
+                                   <div class="form-check">
+                                       <input type="checkbox" class="form-check-input" id="@(provider.Name)UseHostSettings" data-collapse="@(provider.Name)Collapse" @(!provider.IsValid() ? "checked=\"checked\"" : "")>
+                                       <label class="form-check-label" for="@(provider.Name)UseHostSettings">@L["ExternalProviderUseHostSettings"]</label>
+                                   </div>
+
+                                   <div class="collapse @(provider.IsValid() ? "show" : "")" id="@(provider.Name)Collapse">
+                                       @foreach (var property in provider.Properties)
+                                       {
+                                           <div class="mb-3">
+                                               <label class="form-label" for="@($"{provider.Name}.{property.Name}")">@ExternalLoginProviderLocalizationHelper.Localize(defaultLocalizer, $"ExternalProvider:{provider.Name}:{property.Name}", property.Name)</label>
+                                               <input type="text" name="@($"Properties.{property.Name}")" class="form-control" id="@($"{provider.Name}.{property.Name}")" value="@property.Value">
+                                           </div>
+                                       }
+                                       @foreach (var property in provider.SecretProperties)
+                                       {
+                                           <div class="mb-3">
+                                               <label class="form-label" for="@($"{provider.Name}.{property.Name}")">@ExternalLoginProviderLocalizationHelper.Localize(defaultLocalizer, $"ExternalProvider:{provider.Name}:{property.Name}", property.Name)</label>
+                                               <input type="password" autocomplete="new-password" name="@($"SecretProperties.{property.Name}")" class="form-control" id="@($"{provider.Name}.{property.Name}")" value="@property.Value">
+                                           </div>
+                                       }
+                                   </div>
+
+                                   <hr class="my-4"/>
+                               </div>
+                           }
+                        }
+                        else
+                        {
+                           foreach (var provider in Model.AccountExternalProviderSettings.Settings)
+                           {
+                               <div class="provider_container">
+                                   <h4>@ExternalLoginProviderLocalizationHelper.Localize(defaultLocalizer,$"ExternalProvider:{provider.Name}", provider.Name)</h4>
+
+                                  <input type="hidden" name="Name" value="@provider.Name">
+
+                                  <div class="form-check mb-3">
+                                      <input type="checkbox" value="true" @(provider.Enabled ? "checked=\"checked\"" : "") id="@($"{provider.Name}.Enabled")" name="Enabled" class="form-check-input">
+                                      <label class="form-check-label" for="@($"{provider.Name}.Enabled")">@L["ExternalProviderEnabled"].Value</label>
+                                  </div>
+
+                                  @foreach (var property in provider.Properties)
+                                  {
+                                      <div class="mb-3">
+                                          <label class="form-label" for="@($"{provider.Name}.{property.Name}")">@ExternalLoginProviderLocalizationHelper.Localize(defaultLocalizer, $"ExternalProvider:{provider.Name}:{property.Name}", property.Name)</label>
+                                          <input type="text" name="@($"Properties.{property.Name}")" class="form-control" id="@($"{provider.Name}.{property.Name}")" value="@property.Value">
+                                      </div>
+                                  }
+                                  @foreach (var property in provider.SecretProperties)
+                                  {
+                                      <div class="mb-3">
+                                          <label class="form-label" for="@($"{provider.Name}.{property.Name}")">@ExternalLoginProviderLocalizationHelper.Localize(defaultLocalizer, $"ExternalProvider:{provider.Name}:{property.Name}", property.Name)</label>
+                                          <input type="password" autocomplete="new-password" name="@($"SecretProperties.{property.Name}")" class="form-control" id="@($"{provider.Name}.{property.Name}")" value="@property.Value">
+                                      </div>
+                                  }
+
+                                  <hr class="my-4"/>
+                               </div>
+                           }
+                        }
+
+                        <div>
+                            <abp-button button-type="Primary" type="submit"><i class="fa fa-save"></i> @L["Save"]</abp-button>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </abp-tab>
+    }
+</abp-tabs>

@@ -1,0 +1,127 @@
+{
+  "name": "Volo.Abp.Identity.Pro.Domain.Shared",
+  "hash": "21c3c3c6d325e9b63638f810452987bb",
+  "contents": [
+    {
+      "namespace": "Volo.Abp.Identity",
+      "dependsOnModules": [
+        {
+          "declaringAssemblyName": "Volo.Abp.Identity.Domain.Shared",
+          "namespace": "Volo.Abp.Identity",
+          "name": "AbpIdentityDomainSharedModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.VirtualFileSystem",
+          "namespace": "Volo.Abp.VirtualFileSystem",
+          "name": "AbpVirtualFileSystemModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.Localization",
+          "namespace": "Volo.Abp.Localization",
+          "name": "AbpLocalizationModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.Features",
+          "namespace": "Volo.Abp.Features",
+          "name": "AbpFeaturesModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.Settings",
+          "namespace": "Volo.Abp.Settings",
+          "name": "AbpSettingsModule"
+        }
+      ],
+      "implementingInterfaces": [
+        {
+          "name": "IAbpModule",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IAbpModule"
+        },
+        {
+          "name": "IOnPreApplicationInitialization",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IOnPreApplicationInitialization"
+        },
+        {
+          "name": "IOnApplicationInitialization",
+          "namespace": "Volo.Abp",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.IOnApplicationInitialization"
+        },
+        {
+          "name": "IOnPostApplicationInitialization",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IOnPostApplicationInitialization"
+        },
+        {
+          "name": "IOnApplicationShutdown",
+          "namespace": "Volo.Abp",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.IOnApplicationShutdown"
+        },
+        {
+          "name": "IPreConfigureServices",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IPreConfigureServices"
+        },
+        {
+          "name": "IPostConfigureServices",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IPostConfigureServices"
+        }
+      ],
+      "contentType": "abpModule",
+      "name": "AbpIdentityProDomainSharedModule",
+      "summary": null
+    },
+    {
+      "valueType": "SelectionStringValueType",
+      "defaultValue": "Optional",
+      "displayName": "Two factor behaviour",
+      "description": "Set two factor behaviour. Optional values: Optional,Disabled,Forced",
+      "isAvailableToHost": true,
+      "isVisibleToClients": true,
+      "contentType": "feature",
+      "name": "Identity.TwoFactor",
+      "summary": null
+    },
+    {
+      "valueType": "FreeTextStringValueType",
+      "defaultValue": "0",
+      "displayName": "Maximum user count",
+      "description": "0 = unlimited",
+      "isAvailableToHost": true,
+      "isVisibleToClients": true,
+      "contentType": "feature",
+      "name": "Identity.MaxUserCount",
+      "summary": null
+    },
+    {
+      "valueType": "ToggleStringValueType",
+      "defaultValue": "False",
+      "displayName": "LDAP Login",
+      "description": null,
+      "isAvailableToHost": true,
+      "isVisibleToClients": true,
+      "contentType": "feature",
+      "name": "Account.EnableLdapLogin",
+      "summary": null
+    },
+    {
+      "valueType": "ToggleStringValueType",
+      "defaultValue": "False",
+      "displayName": "OAuth Login",
+      "description": null,
+      "isAvailableToHost": true,
+      "isVisibleToClients": true,
+      "contentType": "feature",
+      "name": "Identity.EnableOAuthLogin",
+      "summary": null
+    }
+  ]
+}

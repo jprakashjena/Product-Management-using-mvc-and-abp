@@ -1,0 +1,63 @@
+﻿@page
+@using Volo.Abp.Account.Public.Web.Pages.Account
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.Account.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Theming
+@inject IThemeManager ThemeManager
+@inject IHtmlLocalizer<AccountResource> L
+@model SecurityLogsModel;
+@{
+    Layout = ThemeManager.CurrentTheme.GetApplicationLayout();
+}
+
+@section styles {
+<abp-style-bundle name="@typeof(SecurityLogsModel).FullName">
+    <abp-style src="/Pages/Account/SecurityLog.css" />
+</abp-style-bundle>
+}
+
+@section scripts {
+<abp-script-bundle name="@typeof(SecurityLogsModel).FullName">
+    <abp-script src="/Pages/Account/SecurityLog.js" />
+</abp-script-bundle>
+}
+
+
+@if (!Model.ReturnUrl.IsNullOrWhiteSpace())
+{
+    <abp-row class="mb-2">
+        <abp-column>
+            <a class="btn btn-primary" href="@Model.ReturnUrl">
+                <i class="fa fa-chevron-left me-2"></i>@L["ReturnToApplication"]
+            </a>
+        </abp-column>
+    </abp-row>
+}
+
+<abp-tabs>
+    <abp-tab name="SecurityLogs" title="@L["MySecurityLogs"].Value">
+        <abp-card>
+            <abp-card-body class="pb-lg-3">
+                <form id="FilterFormId" method="post">
+                    <abp-row class="align-items-end">
+                        <abp-column size-lg="_4" size-md="_4">
+                            <div class="mb-3">
+                                <label for="inputTime" class="form-label">@L["Date"]</label>
+                                <input type="text" id="inputTime" class="form-control">
+                            </div>
+                        </abp-column>
+                        <abp-column size-lg="_4" size-md="_4">
+                            <abp-input asp-for="@Model.Action" label-tooltip="@L["SecurityLogs:ActionDescription"].Value"/>
+                        </abp-column>
+                        <abp-column size-lg="_2" size-md="_4">
+                            <abp-button class="mb-3 w-100" button-type="Primary" type="submit">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </abp-button>
+                        </abp-column>
+                    </abp-row>
+                </form>
+            </abp-card-body>
+        </abp-card>
+        <abp-table striped-rows="true" id="MySecurityLogsTable" class="nowrap"></abp-table>
+    </abp-tab>
+</abp-tabs>

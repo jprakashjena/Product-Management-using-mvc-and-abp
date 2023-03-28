@@ -1,0 +1,7 @@
+{
+  "culture": "ru",
+  "texts": {
+    "SamplePageMessage": "Пример страницы для модуля NotesModule1",
+    "Menu:NotesModule1": "NotesModule1"
+  }
+}

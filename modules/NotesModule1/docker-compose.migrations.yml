@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  migrations:
+    build:
+      context: ../../
+      dockerfile: templates/service/database/Dockerfile
+    depends_on:
+      - sqlserver
+    environment:
+      - AuthServer_DB=NotesModule1_Identity
+      - NotesModule1_DB=NotesModule1_ModuleDb
+      - SA_PASSWORD=yourStrong(!)Password

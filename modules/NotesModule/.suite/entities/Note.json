@@ -1,0 +1,62 @@
+{
+  "Id": "dcc6265f-c5fe-40e6-9b7d-b6c03d4acf3e",
+  "Name": "Note",
+  "OriginalName": "Note",
+  "NamePlural": "Notes",
+  "DatabaseTableName": "Notes",
+  "Namespace": "Notes",
+  "BaseClass": "FullAuditedAggregateRoot",
+  "MenuIcon": "file-alt",
+  "PrimaryKeyType": "Guid",
+  "IsMultiTenant": false,
+  "CheckConcurrency": true,
+  "ShouldCreateUserInterface": true,
+  "ShouldCreateBackend": true,
+  "ShouldExportExcel": true,
+  "ShouldAddMigration": true,
+  "ShouldUpdateDatabase": true,
+  "CreateTests": true,
+  "Properties": [
+    {
+      "Id": "6be86fe0-fb28-460d-926a-7c974bc140c4",
+      "Name": "Content",
+      "Type": "string",
+      "EnumType": "",
+      "EnumNamespace": "",
+      "EnumAngularImport": "shared/enums",
+      "EnumFilePath": null,
+      "DefaultValue": null,
+      "IsNullable": false,
+      "IsRequired": true,
+      "IsTextArea": true,
+      "MinLength": 1,
+      "MaxLength": null,
+      "SortOrder": 0,
+      "SortType": 0,
+      "Regex": "",
+      "EmailValidation": false,
+      "EnumValues": null,
+      "IsSelected": true,
+      "OrdinalIndex": 0
+    }
+  ],
+  "NavigationProperties": [
+    {
+      "EntityNameWithDuplicationNumber": "IdentityUser",
+      "EntitySetNameWithDuplicationNumber": "IdentityUsers",
+      "ReferencePropertyName": "IdentityUser",
+      "UiPickType": "Dropdown",
+      "IsRequired": false,
+      "Name": "IdentityUserId",
+      "DisplayProperty": "UserName",
+      "Namespace": "Volo.Abp.Identity",
+      "EntityName": "IdentityUser",
+      "EntitySetName": "IdentityUsers",
+      "DtoNamespace": "Volo.Abp.Identity",
+      "DtoEntityName": "IdentityUserDto",
+      "Type": "Guid"
+    }
+  ],
+  "NavigationConnections": [],
+  "PhysicalFileName": "Note.json"
+}

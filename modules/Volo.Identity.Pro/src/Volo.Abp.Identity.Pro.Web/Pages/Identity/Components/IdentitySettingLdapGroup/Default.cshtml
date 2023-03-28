@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.Identity
+@using Volo.Abp.Identity.Localization
+@using Volo.Abp.Identity.Web.Pages.Identity.Components.IdentitySettingGroup
+@inject IHtmlLocalizer<IdentityResource> L
+@model IdentitySettingLdapGroupViewComponent.IdentityLdapSettingViewModel
+
+<abp-script src="/Pages/Identity/Components/IdentitySettingLdapGroup/Default.js" />
+
+<abp-tabs>
+    @if (Model.IdentityLdapSettings != null)
+    {
+       <abp-tab  active="true" title="@L["IdentitySettingsLdap"].Value">
+           <form id="IdentityLdapSettingsForm">
+               <div class="row">
+                   <div class="col-md-12">
+                       <div>
+                           <h4>@L["LdapLoginSettings"]</h4>
+                           <abp-input asp-for="@Model.IdentityLdapSettings.EnableLdapLogin" name="EnableLdapLogin" />
+                           <abp-input asp-for="@Model.IdentityLdapSettings.LdapServerHost" Label="@L["DisplayName:Abp.Ldap.ServerHost"].Value" name="LdapServerHost" />
+                           <abp-input asp-for="@Model.IdentityLdapSettings.LdapServerPort"  Label="@L["DisplayName:Abp.Ldap.ServerPort"].Value" name="LdapServerPort" />
+                           <abp-input asp-for="@Model.IdentityLdapSettings.LdapBaseDc" Label="@L["DisplayName:Abp.Ldap.BaseDc"].Value" name="LdapBaseDc" />
+                           <abp-input asp-for="@Model.IdentityLdapSettings.LdapDomain" Label="@L["DisplayName:Abp.Ldap.Domain"].Value" name="LdapDomain" />
+                           <abp-input asp-for="@Model.IdentityLdapSettings.LdapUserName" Label="@L["DisplayName:Abp.Ldap.UserName"].Value" name="LdapUserName" />
+                           <abp-input asp-for="@Model.IdentityLdapSettings.LdapPassword" type="password" autocomplete="new-password" placeholder="@L["LdapPasswordPlaceholder"].Value" Label="@L["DisplayName:Abp.Ldap.Password"].Value" name="LdapPassword" />
+                       </div>
+                       <hr class="my-4" />
+                       <div>
+                           <abp-button button-type="Primary" type="submit"><i class="fa fa-save"></i> @L["Save"]</abp-button>
+                       </div>
+                   </div>
+               </div>
+           </form>
+       </abp-tab>
+    }
+</abp-tabs>

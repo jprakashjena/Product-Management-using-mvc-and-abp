@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>NotesModule</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="7.0.2" />
+    <ProjectReference Include="..\..\..\Volo.Identity.Pro\src\Volo.Abp.Identity.Pro.EntityFrameworkCore\Volo.Abp.Identity.Pro.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\NotesModule.Domain\NotesModule.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,28 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using NotesModule.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using NotesModule.Web.Pages.NotesModule.Notes
+@using NotesModule.Notes;
+@using System.Globalization
+@inject IHtmlLocalizer<NotesModuleResource> L
+@model CreateModalModel
+@{
+    Layout = null;
+}
+
+<form data-ajaxForm="true" asp-page="/NotesModule/Notes/CreateModal" autocomplete="off">
+    <abp-modal id="NoteCreateModal">
+        <abp-modal-header title="@L["NewNote"].Value"></abp-modal-header>
+
+        <abp-modal-body>
+
+            <abp-input asp-for="Note.Content" text-area />
+
+            <abp-select asp-for="Note.IdentityUserId" asp-items="Model.IdentityUserLookupList" label="@L["CreatedBy"].Value" />
+
+        </abp-modal-body>
+
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
+    </abp-modal>
+</form>
